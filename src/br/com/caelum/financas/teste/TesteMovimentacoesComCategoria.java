@@ -31,7 +31,7 @@ public class TesteMovimentacoesComCategoria {
 		Conta conta = new Conta();
 		//conta.setId(12);
 		
-		conta = em.find(Conta.class, 12);
+		conta = em.find(Conta.class, 1);
 
 		System.out.println(conta);
 		
@@ -47,15 +47,15 @@ public class TesteMovimentacoesComCategoria {
 		
 		Movimentacao movimentacao2 = new Movimentacao();
 		movimentacao2.setData(Calendar.getInstance()); 
-		movimentacao2.setDescricao("Viagem a RJ");
-		movimentacao2.setTipo(TipoMovimentacao.SAIDA);
+		movimentacao2.setDescricao("Compensação Viajem RJ");
+		movimentacao2.setTipo(TipoMovimentacao.ENTRADA);
 		movimentacao2.setValor(new BigDecimal("600.0"));
 		movimentacao2.setCategoria(Arrays.asList(categoria1,categoria2));
 		
 		movimentacao2.setConta(conta);
 		
 
-		conta.setTitular("Leonardo 12");
+		//conta.setTitular("Leonardo 12");
 		
 		
 		em.persist(conta);
