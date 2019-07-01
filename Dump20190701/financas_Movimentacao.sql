@@ -32,7 +32,7 @@ CREATE TABLE `Movimentacao` (
   PRIMARY KEY (`id`),
   KEY `FKthcy44mjtg87orpl9a3nfso7b` (`conta_id`),
   CONSTRAINT `FKthcy44mjtg87orpl9a3nfso7b` FOREIGN KEY (`conta_id`) REFERENCES `Conta` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `Movimentacao` (
 
 LOCK TABLES `Movimentacao` WRITE;
 /*!40000 ALTER TABLE `Movimentacao` DISABLE KEYS */;
-INSERT INTO `Movimentacao` VALUES (1,'2019-06-30 20:34:42','Churrascaria','SAIDA',200.00,13),(4,'2019-06-30 20:47:47','Super Mercado','SAIDA',350.00,14),(5,'2019-06-30 20:48:32','Super Mercado','SAIDA',350.00,16),(6,'2019-06-30 20:49:47','Super Mercado','SAIDA',350.00,5);
+INSERT INTO `Movimentacao` VALUES (1,'2019-07-01 18:49:00','Viagem a SP','SAIDA',300.00,2),(2,'2019-07-01 18:49:00','Viagem a RJ','SAIDA',600.00,2),(3,'2019-07-01 18:49:07','Viagem a SP','SAIDA',300.00,1),(4,'2019-07-01 18:49:07','Viagem a RJ','SAIDA',600.00,1),(5,'2019-07-01 18:59:44','Viagem a SP','SAIDA',300.00,2),(6,'2019-07-01 18:59:44','Compensação Viajem RJ','ENTRADA',600.00,2),(7,'2019-07-01 18:59:51','Viagem a SP','SAIDA',300.00,1),(8,'2019-07-01 18:59:51','Compensação Viajem RJ','ENTRADA',600.00,1);
 /*!40000 ALTER TABLE `Movimentacao` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-01  0:17:03
+-- Dump completed on 2019-07-01 19:01:29

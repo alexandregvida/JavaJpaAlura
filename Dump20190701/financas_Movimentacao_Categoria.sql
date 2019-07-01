@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.26, for Linux (x86_64)
 --
--- Host: localhost    Database: sys
+-- Host: localhost    Database: financas
 -- ------------------------------------------------------
 -- Server version	5.7.26-0ubuntu0.18.04.1
 
@@ -16,29 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `sys_config`
+-- Table structure for table `Movimentacao_Categoria`
 --
 
-DROP TABLE IF EXISTS `sys_config`;
+DROP TABLE IF EXISTS `Movimentacao_Categoria`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `sys_config` (
-  `variable` varchar(128) NOT NULL,
-  `value` varchar(128) DEFAULT NULL,
-  `set_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `set_by` varchar(128) DEFAULT NULL,
-  PRIMARY KEY (`variable`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `Movimentacao_Categoria` (
+  `Movimentacao_id` int(11) NOT NULL,
+  `categoria_id` int(11) NOT NULL,
+  KEY `FK9qjlgh7a96gx1ks359va1na9a` (`categoria_id`),
+  KEY `FK8c4hm7qt4jdk4xcglplf5dyy7` (`Movimentacao_id`),
+  CONSTRAINT `FK8c4hm7qt4jdk4xcglplf5dyy7` FOREIGN KEY (`Movimentacao_id`) REFERENCES `Movimentacao` (`id`),
+  CONSTRAINT `FK9qjlgh7a96gx1ks359va1na9a` FOREIGN KEY (`categoria_id`) REFERENCES `Categoria` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `sys_config`
+-- Dumping data for table `Movimentacao_Categoria`
 --
 
-LOCK TABLES `sys_config` WRITE;
-/*!40000 ALTER TABLE `sys_config` DISABLE KEYS */;
-INSERT INTO `sys_config` VALUES ('diagnostics.allow_i_s_tables','OFF','2019-06-28 03:50:42',NULL),('diagnostics.include_raw','OFF','2019-06-28 03:50:42',NULL),('ps_thread_trx_info.max_length','65535','2019-06-28 03:50:42',NULL),('statement_performance_analyzer.limit','100','2019-06-28 03:50:42',NULL),('statement_performance_analyzer.view',NULL,'2019-06-28 03:50:42',NULL),('statement_truncate_len','64','2019-06-28 03:50:42',NULL);
-/*!40000 ALTER TABLE `sys_config` ENABLE KEYS */;
+LOCK TABLES `Movimentacao_Categoria` WRITE;
+/*!40000 ALTER TABLE `Movimentacao_Categoria` DISABLE KEYS */;
+INSERT INTO `Movimentacao_Categoria` VALUES (1,1),(1,2),(2,1),(2,2),(3,3),(3,4),(4,3),(4,4),(5,5),(5,6),(6,5),(6,6),(7,7),(7,8),(8,7),(8,8);
+/*!40000 ALTER TABLE `Movimentacao_Categoria` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-01  0:17:03
+-- Dump completed on 2019-07-01 19:01:29
