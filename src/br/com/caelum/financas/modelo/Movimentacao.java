@@ -40,6 +40,10 @@ public class Movimentacao {
 	private List<Categoria> categoria;
 	
 	
+	public void setCategoria(List<Categoria> categoria) {
+		this.categoria = categoria;
+	}
+
 	public Conta getConta() {
 		return conta;
 	}

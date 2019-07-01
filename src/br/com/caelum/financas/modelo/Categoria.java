@@ -1,9 +1,11 @@
 package br.com.caelum.financas.modelo;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Categoria {
 	
 	@Id
@@ -11,6 +13,16 @@ public class Categoria {
 	private Integer id;
 	private String nome;
 
+	@Deprecated
+	public Categoria() {
+		
+	}
+	
+	public Categoria(String nome) {
+		super();
+		this.nome = nome;
+	}
+	
 	public Integer getId() {
 		return id;
 	}

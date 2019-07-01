@@ -15,6 +15,7 @@ public class Conta {
 	private String banco;
 	private String agencia;
 	private String numero;
+	
 	public Integer getId() {
 		return id;
 	}

@@ -10,20 +10,22 @@ public class TestaConta {
 		
 		Conta conta = new Conta();
 		
-		conta.setTitular("Leonardo");
-		conta.setBanco("Caixa Economica");
-		conta.setAgencia("123");
-		conta.setNumero("456");
-		
+//		conta.setTitular("Leonardo");
+//		conta.setBanco("Caixa Economica Federal");
+//		conta.setAgencia("123");
+//		conta.setNumero("456");
+//		
 		EntityManager em = new JPAUtil().getEntityManager();
 		
 		em.getTransaction().begin();
 		
-		conta = em.find(Conta.class, 1);
+		conta = em.find(Conta.class, 6);
 		
 		System.out.println(conta);
 		
-		em.remove(conta);
+		conta.setTitular("Alexandre Duarte");
+		
+		em.persist(conta);
 		
 		em.getTransaction().commit();
 		
