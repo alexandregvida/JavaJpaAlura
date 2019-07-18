@@ -16,27 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Categoria`
+-- Table structure for table `Conta`
 --
 
-DROP TABLE IF EXISTS `Categoria`;
+DROP TABLE IF EXISTS `Conta`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Categoria` (
+CREATE TABLE `Conta` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(255) DEFAULT NULL,
+  `agencia` varchar(255) DEFAULT NULL,
+  `banco` varchar(255) DEFAULT NULL,
+  `numero` varchar(255) DEFAULT NULL,
+  `titular` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Categoria`
+-- Dumping data for table `Conta`
 --
 
-LOCK TABLES `Categoria` WRITE;
-/*!40000 ALTER TABLE `Categoria` DISABLE KEYS */;
-INSERT INTO `Categoria` VALUES (1,'viagem'),(2,'negócios'),(3,'viagem'),(4,'negócios'),(5,'viagem'),(6,'negócios'),(7,'viagem'),(8,'negócios');
-/*!40000 ALTER TABLE `Categoria` ENABLE KEYS */;
+LOCK TABLES `Conta` WRITE;
+/*!40000 ALTER TABLE `Conta` DISABLE KEYS */;
+INSERT INTO `Conta` VALUES (1,'6543','001 - BANCO DO BRASIL','16987-8','Maria dos Santos'),(2,'1745','237 - BANCO BRADESCO','86759-1','Paulo Roberto Souza'),(3,'4606','341 - BANCO ITAU UNIBANCO','46346-3','Antonio Duraes'),(4,'9876','033 - BANCO SANTANDER','12345-6','Leandra Marques'),(5,'1234','104 - CAIXA ECONOMICA FEDERAL','98654-3','Alexandre Duarte');
+/*!40000 ALTER TABLE `Conta` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-01 19:01:29
+-- Dump completed on 2019-07-18 17:28:30

@@ -16,32 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Cliente`
+-- Table structure for table `Conta_Movimentacao`
 --
 
-DROP TABLE IF EXISTS `Cliente`;
+DROP TABLE IF EXISTS `Conta_Movimentacao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Cliente` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `endereco` varchar(255) DEFAULT NULL,
-  `nome` varchar(255) DEFAULT NULL,
-  `profissao` varchar(255) DEFAULT NULL,
-  `conta_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UK_a8p0pxvka1kuwy5y09omepofx` (`conta_id`),
-  CONSTRAINT `FKajhxkga86ursgptf0lm09qpj0` FOREIGN KEY (`conta_id`) REFERENCES `Conta` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+CREATE TABLE `Conta_Movimentacao` (
+  `Conta_id` int(11) NOT NULL,
+  `movimentacoes_id` int(11) NOT NULL,
+  UNIQUE KEY `UK_leffgcyr526csjv4iloathpk` (`movimentacoes_id`),
+  KEY `FKp4a9vjc3g3djv8bnv1l4iu1x7` (`Conta_id`),
+  CONSTRAINT `FKajkfxahotd0eks6q099b88k9j` FOREIGN KEY (`movimentacoes_id`) REFERENCES `Movimentacao` (`id`),
+  CONSTRAINT `FKp4a9vjc3g3djv8bnv1l4iu1x7` FOREIGN KEY (`Conta_id`) REFERENCES `Conta` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Cliente`
+-- Dumping data for table `Conta_Movimentacao`
 --
 
-LOCK TABLES `Cliente` WRITE;
-/*!40000 ALTER TABLE `Cliente` DISABLE KEYS */;
-INSERT INTO `Cliente` VALUES (1,'Rua Fulano, 123','Leonardo','Professor',3);
-/*!40000 ALTER TABLE `Cliente` ENABLE KEYS */;
+LOCK TABLES `Conta_Movimentacao` WRITE;
+/*!40000 ALTER TABLE `Conta_Movimentacao` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Conta_Movimentacao` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-01 19:01:29
+-- Dump completed on 2019-07-18 17:28:30

@@ -16,30 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Conta`
+-- Table structure for table `Movimentacao`
 --
 
-DROP TABLE IF EXISTS `Conta`;
+DROP TABLE IF EXISTS `Movimentacao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Conta` (
+CREATE TABLE `Movimentacao` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `agencia` varchar(255) DEFAULT NULL,
-  `banco` varchar(255) DEFAULT NULL,
-  `numero` varchar(255) DEFAULT NULL,
-  `titular` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  `data` datetime DEFAULT NULL,
+  `descricao` varchar(255) DEFAULT NULL,
+  `tipo` varchar(255) DEFAULT NULL,
+  `valor` decimal(19,2) DEFAULT NULL,
+  `conta_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKthcy44mjtg87orpl9a3nfso7b` (`conta_id`),
+  CONSTRAINT `FKthcy44mjtg87orpl9a3nfso7b` FOREIGN KEY (`conta_id`) REFERENCES `Conta` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Conta`
+-- Dumping data for table `Movimentacao`
 --
 
-LOCK TABLES `Conta` WRITE;
-/*!40000 ALTER TABLE `Conta` DISABLE KEYS */;
-INSERT INTO `Conta` VALUES (1,'6543','001 - BANCO DO BRASIL','16987-8','Maria dos Santos'),(2,'1745','237 - BANCO BRADESCO','86759-1','Paulo Roberto Souza'),(3,'4606','341 - BANCO ITAU UNIBANCO','46346-3','Antonio Duraes'),(4,'9876','033 - BANCO SANTANDER','12345-6','Leandra Marques'),(5,'1234','104 - CAIXA ECONOMICA FEDERAL','98654-3','Alexandre Duarte');
-/*!40000 ALTER TABLE `Conta` ENABLE KEYS */;
+LOCK TABLES `Movimentacao` WRITE;
+/*!40000 ALTER TABLE `Movimentacao` DISABLE KEYS */;
+INSERT INTO `Movimentacao` VALUES (1,'2019-07-01 18:49:00','Viagem a SP','SAIDA',300.00,2),(2,'2019-07-01 18:49:00','Viagem a RJ','SAIDA',600.00,2),(3,'2019-07-01 18:49:07','Viagem a SP','SAIDA',300.00,1),(4,'2019-07-01 18:49:07','Viagem a RJ','SAIDA',600.00,1),(5,'2019-07-01 18:59:44','Viagem a SP','SAIDA',300.00,2),(6,'2019-07-01 18:59:44','Compensação Viajem RJ','ENTRADA',600.00,2),(7,'2019-07-01 18:59:51','Viagem a SP','SAIDA',300.00,1),(8,'2019-07-01 18:59:51','Compensação Viajem RJ','ENTRADA',600.00,1);
+/*!40000 ALTER TABLE `Movimentacao` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-01 19:01:29
+-- Dump completed on 2019-07-18 17:28:30

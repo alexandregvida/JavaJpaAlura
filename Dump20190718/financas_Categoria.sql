@@ -16,33 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Movimentacao`
+-- Table structure for table `Categoria`
 --
 
-DROP TABLE IF EXISTS `Movimentacao`;
+DROP TABLE IF EXISTS `Categoria`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Movimentacao` (
+CREATE TABLE `Categoria` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `data` datetime DEFAULT NULL,
-  `descricao` varchar(255) DEFAULT NULL,
-  `tipo` varchar(255) DEFAULT NULL,
-  `valor` decimal(19,2) DEFAULT NULL,
-  `conta_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FKthcy44mjtg87orpl9a3nfso7b` (`conta_id`),
-  CONSTRAINT `FKthcy44mjtg87orpl9a3nfso7b` FOREIGN KEY (`conta_id`) REFERENCES `Conta` (`id`)
+  `nome` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Movimentacao`
+-- Dumping data for table `Categoria`
 --
 
-LOCK TABLES `Movimentacao` WRITE;
-/*!40000 ALTER TABLE `Movimentacao` DISABLE KEYS */;
-INSERT INTO `Movimentacao` VALUES (1,'2019-07-01 18:49:00','Viagem a SP','SAIDA',300.00,2),(2,'2019-07-01 18:49:00','Viagem a RJ','SAIDA',600.00,2),(3,'2019-07-01 18:49:07','Viagem a SP','SAIDA',300.00,1),(4,'2019-07-01 18:49:07','Viagem a RJ','SAIDA',600.00,1),(5,'2019-07-01 18:59:44','Viagem a SP','SAIDA',300.00,2),(6,'2019-07-01 18:59:44','Compensação Viajem RJ','ENTRADA',600.00,2),(7,'2019-07-01 18:59:51','Viagem a SP','SAIDA',300.00,1),(8,'2019-07-01 18:59:51','Compensação Viajem RJ','ENTRADA',600.00,1);
-/*!40000 ALTER TABLE `Movimentacao` ENABLE KEYS */;
+LOCK TABLES `Categoria` WRITE;
+/*!40000 ALTER TABLE `Categoria` DISABLE KEYS */;
+INSERT INTO `Categoria` VALUES (1,'viagem'),(2,'negócios'),(3,'viagem'),(4,'negócios'),(5,'viagem'),(6,'negócios'),(7,'viagem'),(8,'negócios');
+/*!40000 ALTER TABLE `Categoria` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-01 19:01:29
+-- Dump completed on 2019-07-18 17:28:30

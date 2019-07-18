@@ -16,30 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Movimentacao_Categoria`
+-- Table structure for table `Cliente`
 --
 
-DROP TABLE IF EXISTS `Movimentacao_Categoria`;
+DROP TABLE IF EXISTS `Cliente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Movimentacao_Categoria` (
-  `Movimentacao_id` int(11) NOT NULL,
-  `categoria_id` int(11) NOT NULL,
-  KEY `FK9qjlgh7a96gx1ks359va1na9a` (`categoria_id`),
-  KEY `FK8c4hm7qt4jdk4xcglplf5dyy7` (`Movimentacao_id`),
-  CONSTRAINT `FK8c4hm7qt4jdk4xcglplf5dyy7` FOREIGN KEY (`Movimentacao_id`) REFERENCES `Movimentacao` (`id`),
-  CONSTRAINT `FK9qjlgh7a96gx1ks359va1na9a` FOREIGN KEY (`categoria_id`) REFERENCES `Categoria` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `Cliente` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `endereco` varchar(255) DEFAULT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `profissao` varchar(255) DEFAULT NULL,
+  `conta_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_a8p0pxvka1kuwy5y09omepofx` (`conta_id`),
+  CONSTRAINT `FKajhxkga86ursgptf0lm09qpj0` FOREIGN KEY (`conta_id`) REFERENCES `Conta` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Movimentacao_Categoria`
+-- Dumping data for table `Cliente`
 --
 
-LOCK TABLES `Movimentacao_Categoria` WRITE;
-/*!40000 ALTER TABLE `Movimentacao_Categoria` DISABLE KEYS */;
-INSERT INTO `Movimentacao_Categoria` VALUES (1,1),(1,2),(2,1),(2,2),(3,3),(3,4),(4,3),(4,4),(5,5),(5,6),(6,5),(6,6),(7,7),(7,8),(8,7),(8,8);
-/*!40000 ALTER TABLE `Movimentacao_Categoria` ENABLE KEYS */;
+LOCK TABLES `Cliente` WRITE;
+/*!40000 ALTER TABLE `Cliente` DISABLE KEYS */;
+INSERT INTO `Cliente` VALUES (1,'Rua Fulano, 123','Leonardo','Professor',3);
+/*!40000 ALTER TABLE `Cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-01 19:01:29
+-- Dump completed on 2019-07-18 17:28:30
