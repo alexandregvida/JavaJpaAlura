@@ -16,7 +16,7 @@ public class TesteTodasAsMovimentacoesDasContas {
 		em.getTransaction().begin();
 	
 		
-		String jpql = "select c from Conta c join fetch c.movimentacoes";
+		String jpql = "select distinct c from Conta c left join fetch c.movimentacoes";
 
 		Query query = em.createQuery(jpql);
 		
@@ -25,7 +25,7 @@ public class TesteTodasAsMovimentacoesDasContas {
 		for (Conta conta : todasAsContas) {
 			System.out.println("Titular: " + conta.getTitular());
 			System.out.println("Movimentaçoes: " );
-			System.out.println(conta.getMovimentacoes());
+			System.out.println(conta.getMovimentacoes().toString());
 		}
 		
 	
