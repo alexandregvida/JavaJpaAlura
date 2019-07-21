@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import br.com.caelum.financas.dao.MovimentacaoDao;
 import br.com.caelum.financas.modelo.Movimentacao;
 import br.com.caelum.financas.modelo.TipoMovimentacao;
 import br.com.caelum.financas.modelo.Conta.Conta;
@@ -22,27 +23,11 @@ public class TesteJPQL {
 		Conta conta = new Conta();
 		conta = em.find(Conta.class, 1);
 		
-		//String jpql = "select m from Movimentacao m where m.conta = :pConta" + " and m.tipo = :pTipo  " + " order by m.valor desc";
-
-		//Soma
-		//String jpql = "select sum(m.valor) from Movimentacao m where m.conta = :pConta" + " and m.tipo = :pTipo";
+		MovimentacaoDao dao = new MovimentacaoDao();
 		
+		List<Double> medias = dao.getMediasPorDiaETipo(TipoMovimentacao.SAIDA, conta);
 		
-		//Media
-		//String jpql = "select avg(m.valor) from Movimentacao m where m.conta = :pConta" + " and m.tipo = :pTipo";
-		
-		//Maior Valor
-		String jpql = "select max(m.valor) from Movimentacao m where m.conta = :pConta" + " and m.tipo = :pTipo";
-
-
-		
-		Query query  = em.createQuery(jpql);
-		query.setParameter("pConta", conta);
-		query.setParameter("pTipo", TipoMovimentacao.SAIDA);
-		
-		BigDecimal soma = (BigDecimal) query .getSingleResult();
-		
-		System.out.println("A resultado da query è : " + soma);
+		System.out.println("A resultado da query è : " + medias);
 		
 		em.getTransaction().commit();
 
