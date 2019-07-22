@@ -1,9 +1,11 @@
 package br.com.caelum.financas.dao;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import com.sun.xml.internal.stream.Entity;
 
@@ -13,6 +15,13 @@ import br.com.caelum.financas.modelo.Conta.Conta;
 public class MovimentacaoDao {
 	
 	private EntityManager em;
+
+	public MovimentacaoDao(EntityManager em) {
+		super();
+		this.em = em;
+	}
+
+
 
 	public List<Double> getMediasPorDiaETipo(TipoMovimentacao saida, Conta conta) {
 
@@ -28,9 +37,10 @@ public class MovimentacaoDao {
 		// :pConta" + " and m.tipo = :pTipo";
 
 		// Maior Valor
-		String jpql = "select max(m.valor) from Movimentacao m where m.conta = :pConta" + " and m.tipo = :pTipo";
+		String jpql = "select distinct avg(m.valor) from Movimentacao m where m.conta = :pConta" + " and m.tipo = :pTipo" + " group by m.data";
 
-		Query query = em.createQuery(jpql);
+
+		TypedQuery<Double> query = em.createQuery(jpql, Double.class);
 		query.setParameter("pConta", conta);
 		query.setParameter("pTipo", TipoMovimentacao.SAIDA);
 		

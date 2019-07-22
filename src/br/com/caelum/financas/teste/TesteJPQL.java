@@ -23,11 +23,15 @@ public class TesteJPQL {
 		Conta conta = new Conta();
 		conta = em.find(Conta.class, 1);
 		
-		MovimentacaoDao dao = new MovimentacaoDao();
+		
+		MovimentacaoDao dao = new MovimentacaoDao(em);
 		
 		List<Double> medias = dao.getMediasPorDiaETipo(TipoMovimentacao.SAIDA, conta);
 		
-		System.out.println("A resultado da query è : " + medias);
+		for (Double double1 : medias) {
+			System.out.println("A resultado da query è : " + double1);
+		}
+		
 		
 		em.getTransaction().commit();
 

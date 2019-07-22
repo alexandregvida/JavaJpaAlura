@@ -15,7 +15,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.NamedQuery;
+
 import br.com.caelum.financas.modelo.Conta.Conta;
+
+@NamedQuery(query= "select distinct avg(m.valor) from Movimentacao m where m.conta = :pConta" + " and m.tipo = :pTipo" + " group by m.data", name="MediasPorDiaETipo")
+
 
 @Entity
 public class Movimentacao {
